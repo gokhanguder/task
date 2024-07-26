@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,9 +63,9 @@ class App extends React.Component {
               taskId={task.id}
               taskName={task.name}
               isCompleted={task.isCompleted}
-              onValidate={this.validateTask}
-              onInvalidate={this.invalidateTask}
-              onDelete={this.deleteTask}
+              onClickValidate={() => this.validateTask(task.id)}
+              onClickInvalidate={() => this.invalidateTask(task.id)}
+              onClickDelete={() => this.deleteTask(task.id)}
             />
           ))}
         </div>
@@ -77,9 +77,9 @@ class App extends React.Component {
               taskId={task.id}
               taskName={task.name}
               isCompleted={task.isCompleted}
-              onValidate={this.validateTask}
-              onInvalidate={this.invalidateTask}
-              onDelete={this.deleteTask}
+              onClickValidate={() => this.validateTask(task.id)}
+              onClickInvalidate={() => this.invalidateTask(task.id)}
+              onClickDelete={() => this.deleteTask(task.id)}
             />
           ))}
         </div>

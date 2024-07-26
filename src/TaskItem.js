@@ -1,32 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class TaskItem extends React.Component {
-  handleValidate = () => {
-    this.props.onValidate(this.props.taskId);
-  };
-
-  handleInvalidate = () => {
-    this.props.onInvalidate(this.props.taskId);
-  };
+class TaskItem extends Component {
 
   handleDelete = () => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
-      this.props.onDelete(this.props.taskId);
+    const { taskName, onClickDelete } = this.props;
+    const confirmation = window.confirm(`Êtes-vous sûr de vouloir supprimer la tâche : "${taskName}" ?`);
+    if (confirmation) {
+      onClickDelete();
     }
   };
 
   render() {
-    const { taskName, isCompleted } = this.props;
+    const { taskName, isCompleted, onClickValidate, onClickInvalidate } = this.props;
+
     return (
-      <section style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-        <span style={{ textDecoration: isCompleted ? 'line-through' : 'none', flex: 1 }}>
+      <div style={{ display: 'flex', border: '1px solid #ddd', padding: '10px', marginBottom: '5px' }}>
+        <div style={{ flex: 1, textDecoration: isCompleted ? 'line-through' : 'none' }}>
           {taskName}
-        </span>
-        <button onClick={isCompleted ? this.handleInvalidate : this.handleValidate}>
-          {isCompleted ? 'Invalider' : 'Valider'}
-        </button>
-        <button onClick={this.handleDelete}>Supprimer</button>
-      </section>
+        </div>
+        <div style={{ flex: 1 }}>
+          <button onClick={isCompleted ? onClickInvalidate : onClickValidate}>
+            {isCompleted ? 'Invalider' : 'Valider'}
+          </button>
+        </div>
+        <div style={{ flex: 1 }}>
+          <button onClick={this.handleDelete}>Supprimer</button>
+        </div>
+      </div>
     );
   }
 }

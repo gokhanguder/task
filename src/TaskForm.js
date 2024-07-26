@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class TaskForm extends React.Component {
+class TaskForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
