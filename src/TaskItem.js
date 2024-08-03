@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TaskItem extends Component {
+class TaskItem extends React.Component {
 
   handleDelete = () => {
     const { taskName, onClickDelete } = this.props;
