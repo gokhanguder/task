@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DigiVillesApplication",
+            "request": "launch",
+            "mainClass": "com.digi.digihello.DigiVillesApplication",
+            "projectName": "DigiHello"
+        },
+        {
+            "type": "java",
             "name": "TestDigiApplication",
             "request": "launch",
             "mainClass": "testdigi.TestDigiApplication",
